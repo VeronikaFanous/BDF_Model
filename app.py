@@ -77,7 +77,7 @@ def main():
     
 #     elif option == "Extra Trees": 
 #         model = ET_model
-    elif option == "Decision Tree":
+    if option == "Decision Tree":
         model = DTR_model
     
     #IsPromoWeek
