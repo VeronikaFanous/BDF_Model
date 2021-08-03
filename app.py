@@ -8,9 +8,9 @@ import numpy as np
 products = pd.read_csv("export_products_notNorm.csv",low_memory=False, encoding='utf-8')
 
 # loading the trained model
-RF_model = pickle.load(open('RF_model.pkl', 'rb'))
+#RF_model = pickle.load(open('RF_model.pkl', 'rb'))
 DTR_model = pickle.load(open('DTR_model.pkl', 'rb'))
-ET_model = pickle.load(open(r'ET_model.pkl', 'rb'))
+#ET_model = pickle.load(open(r'ET_model.pkl', 'rb'))
 
  
 #@st.cache()  
@@ -72,12 +72,12 @@ def main():
     
     
     # Pre-processing user input    
-    if option == "Random Forest":
-        model = RF_model
+#     if option == "Random Forest":
+#         model = RF_model
     
-    elif option == "Extra Trees": 
-        model = ET_model
-    else:
+#     elif option == "Extra Trees": 
+#         model = ET_model
+    elif option == "Decision Tree":
         model = DTR_model
     
     #IsPromoWeek
