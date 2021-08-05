@@ -8,9 +8,8 @@ import numpy as np
 products = pd.read_csv("export_products_notNorm.csv",low_memory=False, encoding='utf-8')
 
 # loading the trained model
-#RF_model = pickle.load(open('RF_model.pkl', 'rb'))
 DTR_model = pickle.load(open('DTR_model.pkl', 'rb'))
-ET_model = pickle.load(open('ET_model.pkl', 'rb'))
+
 
  
 #@st.cache()  
@@ -26,8 +25,8 @@ def main():
       
     # Display the front end aspect
     st.markdown(html_temp, unsafe_allow_html = True) 
-    activities=['Decision Tree','Extra Trees','Random Forest']
-    option=st.sidebar.selectbox('Which model would you like to use?',activities)
+    activities=['Decision Tree']
+    option=st.sidebar.selectbox('Used model:',activities)
     st.subheader(option)
     
     #Product, Channel, Month: 
@@ -75,13 +74,8 @@ def main():
     if option == "Decision Tree":
         model = DTR_model
     
-    elif option == "Extra Trees": 
-        model = ET_model
-        
-#    if option == "Random Forest":
-#         model = RF_model
-    
-    #IsPromoWeek
+   
+    #IsPromoPeriod
     if isPromoPeriod == "Yes":
         promo = True
     else:
