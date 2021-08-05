@@ -72,13 +72,14 @@ def main():
     
     
     # Pre-processing user input    
-    if option == "Random Forest":
-        model = RF_model
+    if option == "Decision Tree":
+        model = DTR_model
     
     elif option == "Extra Trees": 
         model = ET_model
-    else: #option == "Decision Tree":
-        model = DTR_model
+        
+#    if option == "Random Forest":
+#         model = RF_model
     
     #IsPromoWeek
     if isPromoPeriod == "Yes":
