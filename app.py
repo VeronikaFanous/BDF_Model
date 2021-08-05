@@ -8,7 +8,7 @@ import numpy as np
 products = pd.read_csv("export_products_notNorm.csv",low_memory=False, encoding='utf-8')
 
 # loading the trained model
-RF_model = pickle.load(open('RF_model.pkl', 'rb'))
+#RF_model = pickle.load(open('RF_model.pkl', 'rb'))
 DTR_model = pickle.load(open('DTR_model.pkl', 'rb'))
 ET_model = pickle.load(open('ET_model.pkl', 'rb'))
 
