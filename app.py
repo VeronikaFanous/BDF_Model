@@ -8,9 +8,9 @@ import numpy as np
 products = pd.read_csv("export_products_notNorm.csv",low_memory=False, encoding='utf-8')
 
 # loading the trained model
-#RF_model = pickle.load(open('RF_model.pkl', 'rb'))
+RF_model = pickle.load(open('RF_model.pkl', 'rb'))
 DTR_model = pickle.load(open('DTR_model.pkl', 'rb'))
-#ET_model = pickle.load(open(r'ET_model.pkl', 'rb'))
+ET_model = pickle.load(open('ET_model.pkl', 'rb'))
 
  
 #@st.cache()  
@@ -20,7 +20,7 @@ def main():
     # front end elements of the web page 
     html_temp = """ 
     <div style ="background-color:teal;padding:10px"> 
-    <h1 style ="color:black;text-align:center;">Forecast of quantity sold</h1> 
+    <h1 style ="color:black;text-align:center;">Sales forecast of quantity sold</h1> 
     </div> 
     """
       
@@ -72,12 +72,12 @@ def main():
     
     
     # Pre-processing user input    
-#     if option == "Random Forest":
-#         model = RF_model
+    if option == "Random Forest":
+        model = RF_model
     
-#     elif option == "Extra Trees": 
-#         model = ET_model
-    if option == "Decision Tree":
+    elif option == "Extra Trees": 
+        model = ET_model
+    else: #option == "Decision Tree":
         model = DTR_model
     
     #IsPromoWeek
@@ -99,7 +99,7 @@ def main():
     # when 'Forecast' is clicked, make the prediction and store it 
     if st.button("Forecast"): 
         result = model.predict(inputs)
-        st.success('The quantity sold is {}'.format(result))
+        st.success('The quantity sold per week in the choosen month is {}'.format(np.round(result,0)))
 
     
 if __name__=='__main__': 
